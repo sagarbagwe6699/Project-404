@@ -3,7 +3,7 @@ import {Grid, Paper, MuiThemeProvider} from '@material-ui/core';
 import LgForm from './components/LgForm';
 
 class LoginPage extends Component {
-    state = {  }
+    state = { data:null }
     render() { 
         return ( 
             <Grid
