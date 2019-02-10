@@ -14,11 +14,11 @@ app.use(bodyParser.json());
 var rest=[];
 
 app.post('/login',async(req,res,next)=>{
-    console.log(req.body.message)
+    console.log(req.body.mailid)
         const db=getdb()
         var rex=null
         try{
-        rex=await db.collection('user').find({name:req.body.message}).toArray()
+        rex=await db.collection('user').find({mail:req.body.mailid}).toArray()
         console.log(rex);
         if(rex.length!=0)
             rest[0]=rex[0]
@@ -32,7 +32,16 @@ app.post('/login',async(req,res,next)=>{
     if(rest.length!=0)
     {
         if(rest[0].pass===req.body.password)
-            res.json(rest[0].name)
+        {
+            var obj={
+                fname:rest[0].fname,
+                lname:rest[0].lname,
+                mail:rest[0].mail,
+                pass:rest[0].pass,
+                address:rest[0].address
+            }
+            res.json(obj)
+        }
         else
             res.json(false)
     }
@@ -45,13 +54,17 @@ app.post('/signup',async(req,res,next)=>{
     const db=getdb()
     var rex=null
     try{
-        rex=await db.collection('user').find({name:req.body.message}).toArray()
+        rex=await db.collection('user').find({mail:req.body.mail}).toArray()
         console.log(rex);
         if(rex.length==0)
         {
             const result=await db.collection('user')
-            .insertOne({name:req.body.message,pass:req.body.password})
+            .insertOne({fname:req.body.fname,lname:req.body.lname,mail:req.body.mail,pass:req.body.pass,address:req.body.address})
             console.log(result)
+            var obj={
+                fname:req.body.fname,lname:req.body.lname,mail:req.body.mail,pass:req.body.pass,address:req.body.address
+            }
+            res.json(obj)
         }
         else
             res.json(false)
@@ -59,7 +72,7 @@ app.post('/signup',async(req,res,next)=>{
         catch(err){
             console.log(err)
         }
-        res.json(req.body.message)
+        
 })
 
 /*function habibi(msg){
