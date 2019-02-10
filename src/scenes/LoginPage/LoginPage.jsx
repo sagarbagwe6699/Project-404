@@ -10,7 +10,7 @@ class LoginPage extends Component {
         return ( 
             <React.Fragment>
                 <Grid
-                style={{background: "#eceff1"}}
+                // style={{background: "#eceff1"}}
                 container
                 direction="row"
                 justify="center">
