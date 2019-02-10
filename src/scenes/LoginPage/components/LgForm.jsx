@@ -67,7 +67,16 @@ class LgForm extends Component {
             container
             direction="row"
             justify="center">
-                <Grid item xs={6} style={{marginTop: 60}} >
+            
+            <Typography variant="overline" style={{fontSize: 30, color: "#607d8b", marginTop: 20}} >
+                    Login
+                    </Typography>
+                    
+                    <Grid item xs={12}>
+                    
+                    </Grid>
+
+                <Grid item xs={6} style={{marginTop: 10}} >
                     <TextField
                     id="outlined-name"
                     label="Name"

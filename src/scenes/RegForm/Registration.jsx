@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Paper, TextField, Grid, Button } from '@material-ui/core';
+import { Paper, TextField, Grid, Button, Typography } from '@material-ui/core';
 import Bg from '../../images/bg.jpg'
 
 class RegForm extends Component {
@@ -21,15 +21,24 @@ class RegForm extends Component {
         return ( 
             <React.Fragment >
                 <Grid container direction="row" justify="center" style={this.styles.outterGrid} >
+
                 <Grid item xs={6}>
                 <Paper style={this.styles.paper} >
                     <form action="">
                     <Grid container direction="row" justify="center">
+                    <Typography variant="overline" style={{fontSize: 30, color: "#607d8b"}} >
+                    Register
+                    </Typography>
+                    
+                    <Grid item xs={12}>
+                    
+                    </Grid>
                     <Grid item xs={6}>
                     <TextField
                     fullWidth
                     autoFocus
                     required
+                    style={{marginTop: 40}}
                     id="outlined-fname"
                     label="First Name"
 
