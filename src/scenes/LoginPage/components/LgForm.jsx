@@ -110,7 +110,7 @@ class LgForm extends Component {
                 </Grid>
                 
                 <Grid item >
-                <Link to="/Home" >   
+                <Link to="/Home" style={{textDecoration:"none"}} >   
                     <Button
                     style={{marginRight: 10,marginBottom: 20,marginTop: 30}}
                     color="primary"

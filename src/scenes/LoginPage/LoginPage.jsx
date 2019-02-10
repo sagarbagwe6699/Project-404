@@ -2,27 +2,31 @@ import React, { Component } from 'react';
 import {Grid, Paper, MuiThemeProvider} from '@material-ui/core';
 import LgForm from './components/LgForm';
 import Footer from '../../reusable-components/footer/footer';
-import Particles from 'react-particles-js';
+import Particles from 'react-particles-js'
 
 class LoginPage extends Component {
     state = { data:null }
     render() { 
         return ( 
-            <React.Fragment>
+            <div><div style={{zIndex:"-1",position:"absolute",background: "linear-gradient(135deg, rgb(96, 108, 136) 0%, rgb(63, 76, 107) 100%)"}}>
+            <Particles width="1536px" height="749px" style={{width:"100%",height:"100%"}}/>
+    </div>
                 <Grid
-                // style={{background: "#eceff1"}}
+                style={{background: "none"}}
                 container
                 direction="row"
                 justify="center">
-                    <Grid item xs={10} sm={9} md={7} lg={5} xl={4} style={{marginTop: 100,marginBottom: 100}} >
-                        <Paper style={{borderRadius: 10}} >
+                    <Grid item xs={10} sm={9} md={7} lg={5} xl={4} style={{marginTop: 125,marginBottom: 100}} >
+                        <Paper style={{borderRadius: 10,background:"WHITE",zIndex:"1"}} >
                             <LgForm  myFetch={this.props.myFetch} loginProp={this.props} />
                         </Paper>
                     </Grid>
                 </Grid>
                 {/* <Footer /> */}
-                {/* <Particles /> */}
-            </React.Fragment>
+                {/*<div style={{background: "linear-gradient(135deg, rgb(96, 108, 136) 0%, rgb(63, 76, 107) 100%)"}}>
+                <Particles width="100%" height="100%"/>
+        </div>*/}
+            </div>
          );
     }
 }
