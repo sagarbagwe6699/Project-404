@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, MuiThemeProvider, TextField, Button, Typography, Divider,Tab,Tabs} from '@material-ui/core';
 import Media from '../../../reusable-components/Social media buttons/MediaEffect';
+import {Link} from 'react-router-dom';
 // import * as myTheme from '../../../themes/blueTheme';
 
 import red from '@material-ui/core/colors/red';
@@ -25,6 +26,16 @@ class LgForm extends Component {
           this.setState({data})
 
           console.log(this.state.data)
+          this.props.loginProp.history.push('/Home')
+        //   console.log(this.props.loginProp.history.location.pathname)
+        // this.props.loginProp.history.location.pathname
+        this.props.myFetch(this.state.data)
+          if(this.state.data!==null&&this.state.data!==false){
+            this.props.loginProp.history.push('/Home')
+          }
+          else{
+            this.props.loginProp.history.push('/Error')
+          }
     }
     sgnclick=async(e)=>{
         e.preventDefault();
@@ -46,8 +57,12 @@ class LgForm extends Component {
 
     
     render() { 
+        console.log(this.props)
+        // var variable=(this.state.data!=null&&this.state.data!==false)?(<Link to={Home}/>):(null)
         return ( 
             // <MuiThemeProvider theme={myTheme}>
+            <form 
+            >
             <Grid
             container
             direction="row"
@@ -86,13 +101,17 @@ class LgForm extends Component {
                 </Grid>
                 
                 <Grid item >
+                <Link to="/Home" >   
                     <Button
                     style={{marginRight: 10,marginBottom: 20,marginTop: 30}}
                     color="primary"
                     variant="contained"
-                    onClick={this.lgclick}>
+                    onClick={this.lgclick}
+                    type="submit"
+                    >
                         Login
                     </Button>
+                </Link>
                     <Button
                     style={{marginBottom: 20,marginTop: 30}}
                     color="primary"
@@ -119,6 +138,8 @@ class LgForm extends Component {
                     <Media />
                 </Grid>
             </Grid>
+            </form>
+            // {variable}
             // </MuiThemeProvider>
          );
     }
