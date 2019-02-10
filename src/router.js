@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import LoginPage from './scenes/LoginPage/LoginPage';
 import Home from './scenes/Home/Home';
+import {BrowserRouter,Switch} from 'react-router-dom';
 import Error from './scenes/Error/Error';
 // import Contact from '../pages/Contacts';
 // import EventPage from '../pages/Event';
@@ -18,20 +19,21 @@ class Routing extends Component {
      }
 
     render() { 
-        const routeLink = (this.state.data!==null&&this.state.data!==false)?(<Route exact path="/Home" component={Home} /> ):(null);
+        const routeLink = (this.state.data!==null&&this.state.data!==false)?(<Route exact path="/Home" component={Home} />
+                                                                             ):(null);
         return ( 
-            <div>
+            <BrowserRouter>
                     <div>
-                        {/* <Route path="/" component={LoginPage} exact /> */}
-                        <Route exact path='/' render={(rp)=>(<LoginPage {...rp} myFetch={this.dataFetch}/>)}/>
-                        {routeLink}
-                        {/* <Route path="/Event" component={EventPage} />
-                        {/* <Route path="/Contact" component={Contactpage} /> */}
-                        {/* <Route path="/Home" component={Home} /> */}
-                        <Route path="/:Error" component={Error} />
-                        {/* <Route path="/EventSingle" component={EventSingle} /> */}
+                        <Switch>
+                            <Route exact path='/' render={(rp)=>(<LoginPage {...rp} myFetch={this.dataFetch}/>)}/>
+                            {routeLink}
+                            {/* <Route path="/Event" component={EventPage} />
+                            {/* <Route path="/Contact" component={Contactpage} /> */}
+                            {/* <Route path="/Home" component={Home} /> */}
+                            <Route path="/:Error" component={Error} />
+                        </Switch>
                     </div>
-            </div>
+            </BrowserRouter>
          );
     }
 }

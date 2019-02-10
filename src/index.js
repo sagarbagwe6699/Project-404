@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './scenes/LoginPage/LoginPage';
 import Router from './router'
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from 'react-router-dom';
 
-ReactDOM.render(<BrowserRouter><Router /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<Router />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
