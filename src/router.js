@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import LoginPage from './scenes/LoginPage/LoginPage';
 import Home from './scenes/Home/Home';
-import {BrowserRouter,Switch} from 'react-router-dom';
+import Registration from './scenes/RegForm/Registration';
 import Error from './scenes/Error/Error';
+import FPassword from './scenes/ForgotPassword/ForgotPass';
 // import Contact from '../pages/Contacts';
 // import EventPage from '../pages/Event';
 
@@ -30,6 +31,8 @@ class Routing extends Component {
                             {/* <Route path="/Event" component={EventPage} />
                             {/* <Route path="/Contact" component={Contactpage} /> */}
                             {/* <Route path="/Home" component={Home} /> */}
+                            <Route path="/Reg" exact component={Registration} />
+                            <Route path="/FPass" exact component={FPassword} />
                             <Route path="/:Error" component={Error} />
                         </Switch>
                     </div>

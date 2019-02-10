@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, MuiThemeProvider, TextField, Button, Typography, Divider,Tab,Tabs} from '@material-ui/core';
 import Media from '../../../reusable-components/Social media buttons/MediaEffect';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 // import * as myTheme from '../../../themes/blueTheme';
 
 import red from '@material-ui/core/colors/red';
@@ -67,7 +67,16 @@ class LgForm extends Component {
             container
             direction="row"
             justify="center">
-                <Grid item xs={6} style={{marginTop: 60}} >
+            
+            <Typography variant="overline" style={{fontSize: 30, color: "#607d8b", marginTop: 20}} >
+                    Login
+                    </Typography>
+                    
+                    <Grid item xs={12}>
+                    
+                    </Grid>
+
+                <Grid item xs={6} style={{marginTop: 10}} >
                     <TextField
                     id="outlined-name"
                     label="Name"
@@ -112,13 +121,19 @@ class LgForm extends Component {
                         Login
                     </Button>
                 </Link>
+                <NavLink 
+                to="/Reg"
+                style={{textDecoration: "none"}}
+                >
                     <Button
                     style={{marginBottom: 20,marginTop: 30}}
                     color="primary"
                     variant="outlined"
-                    onClick={this.sgnclick}>
+                    // onClick={this.sgnclick}
+                    >
                         Sign Up
                     </Button>
+                </NavLink>
                 </Grid>
                 <Grid item xs={12} textAlign="center"><Typography  color="error" variant="body1" style={{textAlign:"center",marginBottom:"3%",visibility:"hidden"}}>Sorry, we don't recognize this combination</Typography>
                     
