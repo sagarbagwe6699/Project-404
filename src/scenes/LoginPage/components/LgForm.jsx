@@ -12,7 +12,7 @@ class LgForm extends Component {
     state = { data:null }
     lgclick=async(e)=>{
         e.preventDefault();
-        var name=document.getElementById('outlined-name').value
+        var mailid=document.getElementById('outlined-name').value
         var password=document.getElementById('outlined-name2').value
         const res=await fetch('http://localhost:3001/login',{     ///dont change to axios
             headers : { 
@@ -20,10 +20,10 @@ class LgForm extends Component {
               'Accept': 'application/json'
              },
              method:"POST",
-             body:JSON.stringify({"message":name,"password":password})
+             body:JSON.stringify({"mailid":mailid,"password":password})
           })
           const data=await res.json()
-          this.setState({data})
+          this.setState({data:data.fname})
 
           console.log(this.state.data)
           this.props.loginProp.history.push('/Home')
@@ -37,23 +37,7 @@ class LgForm extends Component {
             this.props.loginProp.history.push('/Error')
           }
     }
-    sgnclick=async(e)=>{
-        e.preventDefault();
-        var name=document.getElementById('outlined-name').value
-        var password=document.getElementById('outlined-name2').value
-        const res=await fetch('http://localhost:3001/signup',{     ///dont change to axios
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-         },
-         method:"POST",
-         body:JSON.stringify({"message":name,"password":password})
-      })
-      const data=await res.json()
-      this.setState({data})
-
-      console.log(this.state.data)
-    }
+    
 
     
     render() { 
@@ -79,7 +63,7 @@ class LgForm extends Component {
                 <Grid item xs={6} style={{marginTop: 10}} >
                     <TextField
                     id="outlined-name"
-                    label="Name"
+                    label="E-mail ID"
                   // className={classes.textField}
                     // value={this.state.name}
                     // onChange={this.handleChange('name')}

@@ -8,9 +8,10 @@ class LoginPage extends Component {
     state = { data:null }
     render() { 
         return ( 
-            <div><div style={{zIndex:"-1",position:"absolute",background: "linear-gradient(135deg, rgb(96, 108, 136) 0%, rgb(63, 76, 107) 100%)"}}>
-            <Particles width="1536px" height="749px" style={{width:"100%",height:"100%"}}/>
-    </div>
+            <div>
+                <div style={{zIndex:"-1",position:"absolute",background: "linear-gradient(135deg, rgb(96, 108, 136) 0%, rgb(63, 76, 107) 100%)"}}>
+                    <Particles width="1536px" height="749px" style={{width:"100%",height:"100%"}}/>
+                </div>
                 <Grid
                 style={{background: "none"}}
                 container
