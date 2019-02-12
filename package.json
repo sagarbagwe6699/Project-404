@@ -6,11 +6,15 @@
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "mongodb": "^3.1.13",
+    "node-sms-send": "^0.1.3",
+    "nodemailer": "^5.1.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-particles-js": "^2.4.2",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.3"
+    "react-scripts": "2.1.3",
+    "sendmail": "^1.4.1",
+    "xoauth2": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

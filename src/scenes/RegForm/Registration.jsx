@@ -34,10 +34,14 @@ class RegForm extends Component {
          body:JSON.stringify({"fname":fname,"lname":lname,"mail":mail,"pass":pass,"address":address})
       })
       const data=await res.json()
+      if(data!=false){
       this.setState({data})
 
       console.log(this.state.data)
       this.props.history.push('/')
+      }
+      else
+        this.props.history.push('/Error')
     }
 
     render() { 

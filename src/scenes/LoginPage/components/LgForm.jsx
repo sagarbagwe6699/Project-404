@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Grid, MuiThemeProvider, TextField, Button, Typography, Divider,Tab,Tabs} from '@material-ui/core';
 import Media from '../../../reusable-components/Social media buttons/MediaEffect';
 import {Link, NavLink} from 'react-router-dom';
+import Lgbtn from '../../../reusable-components/Buttons/loginbtn'
 // import * as myTheme from '../../../themes/blueTheme';
 
 import red from '@material-ui/core/colors/red';
@@ -23,8 +24,8 @@ class LgForm extends Component {
              body:JSON.stringify({"mailid":mailid,"password":password})
           })
           const data=await res.json()
+          if(data!=false){
           this.setState({data:data.fname})
-
           console.log(this.state.data)
           this.props.loginProp.history.push('/Home')
         //   console.log(this.props.loginProp.history.location.pathname)
@@ -33,6 +34,7 @@ class LgForm extends Component {
           if(this.state.data!==null&&this.state.data!==false){
             this.props.loginProp.history.push('/Home')
           }
+        }
           else{
             this.props.loginProp.history.push('/Error')
           }
@@ -64,6 +66,7 @@ class LgForm extends Component {
                     <TextField
                     id="outlined-name"
                     label="E-mail ID"
+                    autoFocus
                   // className={classes.textField}
                     // value={this.state.name}
                     // onChange={this.handleChange('name')}
@@ -119,6 +122,7 @@ class LgForm extends Component {
                     </Button>
                 </NavLink>
                 </Grid>
+              
                 <Grid item xs={12} textAlign="center"><Typography  color="error" variant="body1" style={{textAlign:"center",marginBottom:"3%",visibility:"hidden"}}>Sorry, we don't recognize this combination</Typography>
                     
                 </Grid>
