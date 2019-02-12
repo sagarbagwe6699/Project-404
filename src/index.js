@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './scenes/LoginPage/LoginPage';
+import Home from './scenes/Home/Home'
 import Router from './router'
 import * as serviceWorker from './serviceWorker';
 
