@@ -32,7 +32,7 @@ class LgForm extends Component {
         // this.props.loginProp.history.location.pathname
         this.props.myFetch(this.state.data)
           if(this.state.data!==null&&this.state.data!==false){
-            this.props.loginProp.history.push('/Home')
+            this.props.loginProp.history.push('/Home')               //haha
           }
         }
           else{
