@@ -23,8 +23,8 @@ class Home extends Component {
         console.log(this.state)
         return ( 
             <div id="newbg">
-                <NavBar clicked={this.state.clickdata} name={this.state.data}/>
-                <MyDrawer clickerr={this.clickerr} name={this.state.data}/>
+                <NavBar clicked={this.state.clickdata} name={this.state.data.fname}/>
+                <MyDrawer clickerr={this.clickerr} name={this.state.data.fname}/>
                 <div style={{marginLeft: 300,marginTop: 100,marginRight: 40}} >
                     <Grid
                     container

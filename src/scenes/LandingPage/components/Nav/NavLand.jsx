@@ -87,9 +87,12 @@ class MenuAppBar extends React.Component {
                   <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                   <MenuItem onClick={this.handleClose}>My account</MenuItem>
                 </Menu> */}
-                {/* <Link to="/user/login"> */}
+                <Link to="user/login" style={{textDecoration:"none",color:"#fff"}} >
                 <Button variant="outlined" color="inherit" >Book a room</Button>
-                {/* </Link> */}
+                </Link>
+                <Link to="admin/login" style={{textDecoration:"none",color:"#fff"}} >
+                <Button variant="outlined" color="inherit" >Admin</Button>
+                </Link>
               </div>
           </Toolbar>
         </AppBar>

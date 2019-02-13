@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {Grid, MuiThemeProvider, TextField, Button, Typography, Divider,Tab,Tabs} from '@material-ui/core';
-import Media from '../../../reusable-components/Social media buttons/MediaEffect';
 import {Link, NavLink} from 'react-router-dom';
-import Lgbtn from '../../../reusable-components/Buttons/loginbtn'
 // import * as myTheme from '../../../themes/blueTheme';
 
 import red from '@material-ui/core/colors/red';
@@ -15,29 +13,20 @@ class AdminForm extends Component {
         e.preventDefault();
         var mailid=document.getElementById('outlined-name').value
         var password=document.getElementById('outlined-name2').value
-        const res=await fetch('http://localhost:3001/login',{     ///dont change to axios
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             },
-             method:"POST",
-             body:JSON.stringify({"mailid":mailid,"password":password})
-          })
-          const data=await res.json()
-          if(data!=false){
-          this.setState({data:data.fname})
+        if(mailid=="admin@lazyrooms.in"&&password=="password"){
+          this.setState({data:"Admin"})
           console.log(this.state.data)
         //   this.props.loginProp.history.push('/Home')
         //   console.log(this.props.loginProp.history.location.pathname)
         // this.props.loginProp.history.location.pathname
         this.props.myFetch(this.state.data)
           if(this.state.data!==null&&this.state.data!==false){
-            this.props.loginProp.history.push('/Home')  
+            this.props.loginProp.history.push('/admin/Home')  
             console.log(this.props.loginProp)             //haha
           }
         }
           else{
-            this.props.loginProp.history.push('/Error')
+              alert('Invalid Username or password')
           }
     }
     
@@ -56,7 +45,7 @@ class AdminForm extends Component {
             justify="center">
             
             <Typography variant="overline" style={{fontSize: 30, color: "#607d8b", marginTop: 20}} >
-                    Login
+                    Admin Login
                     </Typography>
                     
                     <Grid item xs={12}>
@@ -128,19 +117,6 @@ class AdminForm extends Component {
                     
                 </Grid>
                 
-                <Grid item xs={9}>
-                    <Divider variant="middle" />
-                </Grid>
-
-                <Grid item xs={12}>
-                    <Typography variant="h6" color="primary" style={{textAlign: "center",marginTop: 20}} >
-                        Sign up with
-                    </Typography>
-                </Grid>
-
-                <Grid item xs={12} sm={6} style={{marginBottom: 20}} >
-                    <Media />
-                </Grid>
             </Grid>
             </form>
             // {variable}
