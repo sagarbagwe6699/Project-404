@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import {Typography, Grid} from '@material-ui/core';
 import MyDrawer from './Drawer/Drawer';
-import MyCard from '../../reusable-components/Card/Cards';
+import CCard from '../../reusable-components/Card/CreateCards';
+import DelCard from '../../reusable-components/Card/DeleteCard';
+import UCard from '../../reusable-components/Card/Update';
 import NavBar from '../../reusable-components/Nav/NavBar';
+import MyTable from './Table/MyTable';
 
 class Home extends Component {
     state = { clickdata:"1",
@@ -30,12 +33,28 @@ class Home extends Component {
                     direction="row"
                     justify="center"
                     spacing={24}
-                    style={{width: "100%"}}
+                    style={{width: "100%",marginBottom: 60}}
                     >
                         <Grid item xs={4} sm={4} md={3}  >
-                            <MyCard />
+                            <CCard />
                         </Grid>
-                        
+
+                        <Grid item xs={4} sm={4} md={3}  >
+                            <DelCard />
+                        </Grid>
+
+                        <Grid item xs={4} sm={4} md={3}  >
+                            <UCard />
+                        </Grid>
+
+                        <Grid xs={12}>
+                        </Grid>
+
+                        <Grid xs={12}>
+                            <MyTable />
+                        </Grid>
+
+{/*                         
                         <Grid item xs={4} sm={4} md={3} >
                             <MyCard />
                         </Grid>
@@ -54,7 +73,7 @@ class Home extends Component {
                         
                         <Grid item xs={4} sm={4} md={3} >
                             <MyCard />
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </div>
             </div>
