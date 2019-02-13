@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppBar, Toolbar, Typography, IconButton, createMuiTheme, MuiThemeProvider,Badge,MenuItem,Menu} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, IconButton, createMuiTheme, MuiThemeProvider,Badge,MenuItem,Menu,Button} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -63,16 +63,18 @@ class NavBar extends Component {
                         <AccountCircle />
                         <Typography variant="subtitle" color="inherit">{this.props.name}</Typography>
                     </IconButton>
-                 {/* //   <Menu
-                  //   id="simple-menu"
-                  //   // anchorEl={anchorEl}
-                  //   open={this.state.open}
-                  //   onClose={this.handleClose}
-                  // >
-                  //   <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                  //   <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                  //   <MenuItem onClick={this.handleClose}>Logout</MenuItem>
-                 // </Menu>*/}
+                    <Button variant="outlined" color="inherit" >Logout</Button>
+                    {/* <Menu
+                      id="simple-menu"
+                      // anchorEl={anchorEl}
+                      open={this.state.open}
+                      onClose={this.handleClose}
+                      style={{top: 56,left: 30}}
+                    >
+                      <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                      <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                      <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                  </Menu> */}
                     </div>
                 </Toolbar>
                 </AppBar>

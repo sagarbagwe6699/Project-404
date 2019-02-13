@@ -70,7 +70,7 @@ class Footer2 extends Component {
                         
                         </Grid>
                         <Grid item >
-                            <a href="####" style={this.styles.text} >ABOUT US</a>
+                            <a href="admin/login" style={this.styles.text} >Admin</a>
                         </Grid>
                         <Grid item >
                             <a href="####" style={this.styles.text} >CONTACT US</a>
