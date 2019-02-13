@@ -13,8 +13,7 @@ class Home extends Component {
         })
     }
     componentWillMount(){
-        console.log(this.props.data)
-        const {data}=this.props
+        const data="Admin"
         this.setState({
             data
         })
@@ -23,8 +22,8 @@ class Home extends Component {
         console.log(this.state)
         return ( 
             <div id="newbg">
-                <NavBar clicked={this.state.clickdata} name={this.state.data.fname}/>
-                <MyDrawer clickerr={this.clickerr} name={this.state.data.fname}/>
+                <NavBar clicked={this.state.clickdata} name={"Admin"}/>
+                <MyDrawer clickerr={this.clickerr} name={this.state.data}/>
                 <div style={{marginLeft: 300,marginTop: 100,marginRight: 40}} >
                     <Grid
                     container

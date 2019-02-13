@@ -69,11 +69,13 @@ class MyDrawer extends Component {
                 <MuiThemeProvider theme={theme} >
                 <Drawer open={this.state.isOpen} variant="persistent" style={{marginTop: 64}} >
                         <ListItem style={{marginTop: 70,paddingBottom:1}} >
-                            <ListItemText style={{fontSize: 30}} primary={this.dater()} />
+                            {/* <ListItemText style={{fontSize: 30}} primary={this.dater()} /> */}
+                            <ListItemText style={{fontSize: 30}} primary="Admin" />
+                            
                         </ListItem>
-                        <ListItem style={{marginTop: 1,paddingTop:1}} >
+                        {/* <ListItem style={{marginTop: 1,paddingTop:1}} >
                             <ListItemText style={{fontSize: 30}} primary={"sanjay"} /> {/*his.props.name*/}
-                        </ListItem>
+                        {/* </ListItem> */}
                         <Divider variant="middle" />
                 
                     <List style={{marginTop: 10}} >
