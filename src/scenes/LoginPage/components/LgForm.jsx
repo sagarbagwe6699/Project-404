@@ -37,7 +37,8 @@ class LgForm extends Component {
           }
         }
           else{
-            this.props.loginProp.history.push('/Error')
+              alert("Invalid username or password")
+            // this.props.loginProp.history.push('/Error')
           }
     }
     

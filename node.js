@@ -58,6 +58,7 @@ app.post('/signup',async(req,res,next)=>{
     try{
         rex=await db.collection('user').find({mail:req.body.mail}).toArray()
         console.log(rex);
+        console.log(rex.length);
         if(rex.length==0)
         {
             const result=await db.collection('user')
