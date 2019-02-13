@@ -5,12 +5,26 @@ import MyCard from '../../reusable-components/Card/Cards';
 import NavBar from '../../reusable-components/Nav/NavBar';
 
 class Home extends Component {
-    state = {  }
+    state = { clickdata:"1",
+                data:null}
+    clickerr=(clickdata)=>{
+        this.setState({
+            clickdata
+        })
+    }
+    componentWillMount(){
+        console.log(this.props.data)
+        const {data}=this.props
+        this.setState({
+            data
+        })
+    }
     render() { 
+        console.log(this.state)
         return ( 
-            <div>
-                <NavBar />
-                <MyDrawer />
+            <div id="newbg">
+                <NavBar clicked={this.state.clickdata} name={this.state.data}/>
+                <MyDrawer clickerr={this.clickerr} name={this.state.data}/>
                 <div style={{marginLeft: 300,marginTop: 100,marginRight: 40}} >
                     <Grid
                     container

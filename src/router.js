@@ -20,7 +20,7 @@ class Routing extends Component {
      }
 
     render() { 
-        const routeLink = (this.state.data!==null&&this.state.data!==false)?(<Route exact path="/Home" component={Home} />
+        const routeLink = (this.state.data!==null&&this.state.data!==false)?(<Route exact path="/Home" render={(rp)=>(<Home {...rp} data={this.state.data}/>)}/>
                                                                              ):(null);
         return ( 
             <BrowserRouter>

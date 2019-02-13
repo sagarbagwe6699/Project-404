@@ -27,12 +27,13 @@ class LgForm extends Component {
           if(data!=false){
           this.setState({data:data.fname})
           console.log(this.state.data)
-          this.props.loginProp.history.push('/Home')
+        //   this.props.loginProp.history.push('/Home')
         //   console.log(this.props.loginProp.history.location.pathname)
         // this.props.loginProp.history.location.pathname
         this.props.myFetch(this.state.data)
           if(this.state.data!==null&&this.state.data!==false){
-            this.props.loginProp.history.push('/Home')               //haha
+            this.props.loginProp.history.push('/Home')  
+            console.log(this.props.loginProp)             //haha
           }
         }
           else{
@@ -47,7 +48,7 @@ class LgForm extends Component {
         // var variable=(this.state.data!=null&&this.state.data!==false)?(<Link to={Home}/>):(null)
         return ( 
             // <MuiThemeProvider theme={myTheme}>
-            <form 
+            <form style={{display:"block"}}
             >
             <Grid
             container
