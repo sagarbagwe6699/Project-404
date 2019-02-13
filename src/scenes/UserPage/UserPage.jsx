@@ -1,19 +1,69 @@
 import React, { Component } from 'react';
 import NavLand from '../UserPage/components/Nav/NavLand';
+import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types';
 import { Grid, Paper, Typography, FormGroup, InputLabel, FormControl, Select, MenuItem, OutlinedInput, List, ListItem, ListItemText, Button } from '@material-ui/core';
+
+
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+    formControl: {
+      margin: theme.spacing.unit,
+      minWidth: 120,
+    },
+  });
 
 class UserPage extends Component {
     state = { 
-        value: 10
+        value: 10,
+        room:[]
      }
      handleChange = name => event => {
         this.setState({ [name]: event.target.value });
       };
+      componentDidMount=async()=>{
+        const res=await fetch('http://localhost:3002/login',{     ///dont change to axios
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         },
+         method:"POST",
+         body:JSON.stringify({"isavailable":true})
+      })
+      const data=await res.json()
+      if(data!=false){
+        this.setState({room:data})
+        console.log("xxxxxxx")
+        console.log(this.state.data)
+      }
+      else{
+          this.setState({
+              room:[]
+          })
+      }
+    }
+
+   
+
     render() { 
+        const {classes}=this.props
+        console.log(this.state)
+        var availroom=(this.state.room.length!=0)?(this.state.room.map(elm=>{
+                                                    return(    <ListItem button >
+                                                            <ListItemText primary={elm.number} />
+                                                            <Button variant="outlined" color='primary' >
+                                                                Book Room
+                                                            </Button>
+                                                        </ListItem>)
+        })):(<h1>No rooms available at the moment</h1>)
         return ( 
             <React.Fragment>
                 <div>
-                    <NavLand />
+                {console.log(this.props)}
+                    <NavLand name={this.props.data.fname}/>
                     <Grid
                     container
                     direction="row"
@@ -38,9 +88,9 @@ class UserPage extends Component {
                                                 <FormGroup fullWidth>
 
                                                 {/* RoomType */}
-                                                    <FormControl variant="outlined" fullWidth style={{marginTop: 40}} >
+                                                    <FormControl variant="outlined" fullWidth className={classes.formControl} >
 
-                                                    <InputLabel>
+                                                    <InputLabel variant="outlined">
                                                         Room Type
                                                     </InputLabel>
 
@@ -78,6 +128,7 @@ class UserPage extends Component {
 
                                                         <Select
                                                             // value={this.state.value}
+                                                            native
                                                             onClick={this.handleChange("bedType")}
                                                             fullWidth
                                                             input={
@@ -112,18 +163,7 @@ class UserPage extends Component {
                                         >
                                             <Grid item xs={12}>
                                                 <List>
-                                                    <ListItem button >
-                                                        <ListItemText primary="Room1" />
-                                                        <Button variant="outlined" color='primary' >
-                                                            Book Room
-                                                        </Button>
-                                                    </ListItem>
-                                                    <ListItem button >
-                                                        <ListItemText primary="Room2" />
-                                                        <Button variant="outlined" color='primary' >
-                                                            Book Room
-                                                        </Button>
-                                                    </ListItem>
+                                                    {availroom}
                                                 </List>
                                             </Grid>
                                         </Grid>
@@ -138,5 +178,10 @@ class UserPage extends Component {
          );
     }
 }
+
+UserPage.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+
  
-export default UserPage;
+export default withStyles(styles)(UserPage);

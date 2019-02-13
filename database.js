@@ -1,7 +1,7 @@
 const mongodb=require('mongodb')
 const MongoClient=mongodb.MongoClient;
 
-var _db;
+var _db,_rm;
 const mongoconnect=(callback)=>{
     MongoClient.connect('mongodb+srv://sanjay:sanjayji@cluster0-semln.mongodb.net/login?retryWrites=true',{ useNewUrlParser: true })
 .then(client=>{

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Grid, Paper, MuiThemeProvider} from '@material-ui/core';
-import LgForm from './components/LgForm';
+import LgForm from './AdminLoginForm';
 import Footer from '../../reusable-components/footer/footer';
 import Particles from 'react-particles-js'
 

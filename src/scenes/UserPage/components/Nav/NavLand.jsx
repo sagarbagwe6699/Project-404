@@ -69,6 +69,7 @@ class MenuAppBar extends React.Component {
                   color="inherit"
                 >
                   <AccountCircle />
+                  <Typography variant="subtitle" color="inherit">{this.props.name}</Typography>
                 </IconButton>
                 {/* <Menu
                   id="menu-appbar"
@@ -87,9 +88,9 @@ class MenuAppBar extends React.Component {
                   <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                   <MenuItem onClick={this.handleClose}>My account</MenuItem>
                 </Menu> */}
-                {/* <Link to="/user/login"> */}
+                <Link to="user/login" style={{textDecoration:"none",color:"#fff"}}> 
                 <Button variant="outlined" color="inherit" >Log Out</Button>
-                {/* </Link> */}
+                 </Link> 
               </div>
           </Toolbar>
         </AppBar>

@@ -25,7 +25,8 @@ class LgForm extends Component {
           })
           const data=await res.json()
           if(data!=false){
-          this.setState({data:data.fname})
+          this.setState({data:data})
+          console.log("-------")
           console.log(this.state.data)
         //   this.props.loginProp.history.push('/Home')
         //   console.log(this.props.loginProp.history.location.pathname)
